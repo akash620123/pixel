@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resolution</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .grid-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+      }
+
+      .grid-gallery img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .grid-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-gallery img {
+          width: 50%;
+          height: 50%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .grid-gallery {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .grid-gallery img {
+          width: 30%;
+          height: 30%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#fcf8ef] text-black font-Jost">
+    <div class="container-fluid">
+      <section>
+        <nav class="flex justify-between items-center pt-2">
+          <div class="flex items-center">
+            <a href="#" class="text-lg font-bold text-black no-underline"
+              >Resolution<span class="text-red-400">.</span></a
+            >
+          </div>
+          <div class="hidden md:flex items-center">
+            <a href="#" class="mx-3 text-md text-black no-underline">Home</a>
+            <a href="#" class="mx-3 text-md text-black no-underline">Photos</a>
+            <a href="#" class="mx-3 text-md text-black no-underline">Videos</a>
+            <a
+              href="/public/upload.html"
+              class="mx-3 text-md text-black no-underline"
+              >Upload Your Photos</a
+            >
+            <a href="#" class="mx-3 text-md text-black no-underline"
+              >About Us</a
+            >
+            <a href="/public/login.html"
+              ><i class="fa-solid fa-user text-black"></i
+            ></a>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button class="mobile-menu-button p-2">
+              <i class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden h-full">
+          <a href="#" class="block py-2 px-4 text-lg hover:bg-gray-200">Home</a>
+          <a href="#" class="block py-2 px-4 text-lg hover:bg-gray-200"
+            >Photos</a
+          >
+          <a href="#" class="block py-2 px-4 text-lg hover:bg-gray-200"
+            >Videos</a
+          >
+          <a href="#" class="block py-2 px-4 text-lg hover:bg-gray-200"
+            >Explore More</a
+          >
+          <a href="#" class="block py-2 px-4 text-lg hover:bg-gray-200"
+            >About Us</a
+          >
+        </div>
+      </section>
+      <section>
+        <h1 class="text-center text-4xl uppercase font-bold">
+          Resolution<span class="text-red-400">.</span>
+        </h1>
+        <p class="text-center text-lg sm:text-2xl font-semibold">
+          Download Free Stock Photos & Videos.
+        </p>
+        <div class="header-img mt-4 relative aspect-ratio-[4/3]">
+          <img
+            src="/assets/pexels-nickcollins-1293120.jpg"
+            alt="loading..."
+            class="w-full h-96 object-cover rounded-md"
+          />
+          <div
+            class="photo-finder absolute flex justify-between items-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-1/2 md:w-2/3 lg:w-1/2 xl:w-1/2"
+          >
+            <input
+              type="search"
+              placeholder="Search Photos videos"
+              id="search-input"
+              class="py-3 px-4 sm:px-14 md:px-14 lg:px-10 xl:px-12 rounded-md w-full bg-[#fcf8ef] text-right"
+            />
+            <i
+              id="search"
+              class="fa-solid fa-magnifying-glass text-xl cursor-pointer text-gray-400 hover:text-black absolute ml-4"
+            ></i>
+          </div>
+        </div>
+      </section>
+      <section class="mt-4">
+        <div class="flex justify-between">
+          <h2 class="text-3xl font-semibold">Free Stock Photos</h2>
+          <select name="category" id="" class="bg-transparent appearance-none">
+            <option value="" class="">Popular</option>
+            <option value="" class="">Following</option>
+          </select>
+        </div>
+      </section>
+      <section class="gallery mt-4">
+        <div class="grid-gallery"></div>
+      </section>
+    </div>
+    <!--
+    script
+    -->
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
